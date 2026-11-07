@@ -1,0 +1,15 @@
+# Render Blueprint — one-click deploy from this repo.
+# Manual settings equivalent: Build Command: (empty)  Start Command: npm start  Health Check: /api/health
+services:
+  - type: web
+    name: dashboardpool
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.x
+      - key: SHEET_ID
+        sync: false  # optional override; defaults to Singkawang sheet in server.js
