@@ -1,11 +1,11 @@
 # Render Blueprint — one-click deploy from this repo.
-# Manual settings equivalent: Build Command: (empty)  Start Command: npm start  Health Check: /api/health
+# Manual equivalent: Build Command: echo "no build needed"  Start Command: npm start  Health Check: /api/health
 services:
   - type: web
     name: dashboardpool
     runtime: node
     plan: free
-    buildCommand: ""
+    buildCommand: 'echo "no build needed"'
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
