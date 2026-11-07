@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-type="software">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="page-type" content="software">
+<meta name="site-kind" content="software">
+<title>Pool Analytics — Singkawang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span>
+    <div><h1>Pool Analytics</h1><p id="subtitle">Singkawang pool · installation operations</p></div>
+  </div>
+  <div class="top-actions">
+    <span id="source" class="badge" role="status">loading…</span>
+    <button id="refresh" type="button">Refresh data</button>
+    <a class="sheet" href="https://docs.google.com/spreadsheets/d/1HN4MlIUBsEP5tzpOfKFeNbQ2G7ldgaZu9_r9qOHm6pA/edit" target="_blank" rel="noopener">Open sheet</a>
+  </div>
+</header>
+
+<main>
+  <section class="kpis" id="kpis" aria-label="Key numbers"></section>
+
+  <section class="grid">
+    <article class="panel wide">
+      <header><h2>Daily activity</h2><p>Jalur per day, with installs realized</p></header>
+      <div id="daily" class="chart" role="img" aria-label="Bar chart of total jalur per day"></div>
+      <div class="legend"><span><i class="sw amber"></i>Jalur</span><span><i class="sw teal"></i>Realized</span></div>
+    </article>
+    <article class="panel">
+      <header><h2>Bobot funnel</h2><p>Entered vs finished</p></header>
+      <div id="funnel"></div>
+    </article>
+    <article class="panel">
+      <header><h2>Install target vs real</h2><p>Cumulative achievement</p></header>
+      <div id="target"></div>
+    </article>
+    <article class="panel">
+      <header><h2>Obstacles</h2><p>Reported blockers by type</p></header>
+      <div id="obstacles"></div>
+    </article>
+  </section>
+
+  <section class="panel table-panel">
+    <header class="table-head">
+      <div><h2>Daily log</h2><p id="table-note"></p></div>
+      <div class="filters">
+        <label for="q">Search</label><input id="q" type="search" placeholder="date or pool…" autocomplete="off">
+        <label for="min">Min jalur</label><input id="min" type="number" min="0" value="0">
+      </div>
+    </header>
+    <div class="scroll"><table id="tbl">
+      <thead><tr><th>No</th><th>Date</th><th>Pool</th><th>Achv</th><th>Jalur</th><th>Prod.</th><th>Bobot in</th><th>Bobot fin</th><th>Target</th><th>Real</th><th>Cancel</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p id="empty" class="empty" hidden>No rows match. Clear the search or lower Min jalur.</p>
+  </section>
+</main>
+<footer>Data: Google Sheets “Centralize” · Singkawang pool · Nov 2026 · <span id="fetched"></span></footer>
+<script src="/app.js"></script>
+</body>
+</html>

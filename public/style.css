@@ -1,0 +1,51 @@
+/* Design: dense ops console. Tokens: ink #101613, surface #171F1B, line #2A3830, amber #F2A33C (primary signal), teal #2EC4B6, coral #EE6C4D, paper #EEF3EE. Type: Fira Sans + Fira Code. */
+:root{--ink:#101613;--surface:#171F1B;--surface2:#1D2821;--line:#2A3830;--paper:#EEF3EE;--muted:#9DB3A6;--amber:#F2A33C;--teal:#2EC4B6;--coral:#EE6C4D;--radius:10px}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;font:16px/1.5 "Fira Sans",system-ui,sans-serif;background:var(--ink);color:var(--paper)}
+h1{font-size:1.25rem;margin:0} h2{font-size:1rem;margin:0} p{margin:.25rem 0;color:var(--muted);font-size:.85rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--ink);z-index:5;flex-wrap:wrap}
+.brand{display:flex;gap:.75rem;align-items:center}.brand p{margin:0}
+.mark{width:2rem;height:2rem;border-radius:8px;background:linear-gradient(135deg,var(--amber) 0 55%,var(--teal) 55%);flex:none}
+.top-actions{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+button,.sheet,.badge{font:inherit;font-size:.85rem;min-height:44px;display:inline-flex;align-items:center;padding:.4rem .9rem;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--paper);text-decoration:none;cursor:pointer}
+button:hover,.sheet:hover{border-color:var(--amber);transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button:focus-visible,.sheet:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.badge{border-color:var(--teal);color:var(--teal);cursor:default}
+main{padding:1.25rem 1.5rem;max-width:1440px;margin:0 auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin-bottom:1rem}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.85rem 1rem}
+.kpi b{font:600 1.6rem/1.1 "Fira Code",monospace;display:block}
+.kpi span{color:var(--muted);font-size:.8rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-bottom:1rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1rem}
+.panel.wide{grid-column:span 2}
+@media (max-width:760px){.panel.wide{grid-column:span 1}}
+.chart{display:flex;align-items:flex-end;gap:6px;height:180px;padding-top:1rem}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;min-width:0}
+.bar .col{width:100%;max-width:34px;border-radius:4px 4px 0 0;background:var(--amber);position:relative}
+.bar .col.real{background:var(--teal)}
+.bar .lbl{font:500 .65rem "Fira Code",monospace;color:var(--muted);white-space:nowrap}
+.legend{display:flex;gap:1rem;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+.sw{display:inline-block;width:.7rem;height:.7rem;border-radius:3px;margin-right:.35rem}
+.sw.amber{background:var(--amber)} .sw.teal{background:var(--teal)}
+.frow{display:grid;grid-template-columns:90px 1fr 60px;gap:.6rem;align-items:center;margin:.6rem 0;font-size:.85rem}
+.track{height:.65rem;background:var(--surface2);border-radius:99px;overflow:hidden}
+.fill{height:100%;background:var(--amber);border-radius:99px;transition:width .4s}
+.fill.teal{background:var(--teal)} .fill.coral{background:var(--coral)}
+.frow output{font:500 .8rem "Fira Code",monospace;text-align:right}
+.big{font:600 2.2rem/1.1 "Fira Code",monospace;color:var(--teal)}
+.table-panel{padding:0;overflow:hidden}
+.table-head{display:flex;justify-content:space-between;gap:1rem;padding:1rem;flex-wrap:wrap;align-items:end}
+.filters{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.filters label{font-size:.8rem;color:var(--muted)}
+input{min-height:44px;background:var(--surface2);border:1px solid var(--line);color:var(--paper);border-radius:8px;padding:.35rem .6rem;font:inherit;font-size:.85rem}
+input[type=number]{width:5rem}
+.scroll{overflow:auto} table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:720px}
+th,td{padding:.55rem .75rem;text-align:left;border-top:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:500;border-top:0;background:var(--surface2)}
+td{font-family:"Fira Code",monospace} tbody tr:hover{background:var(--surface2)}
+.empty{padding:1rem;color:var(--amber)}
+footer{padding:1rem 1.5rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
